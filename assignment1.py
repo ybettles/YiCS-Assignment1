@@ -231,12 +231,17 @@ def ids_addrs(short_addr):
     f = "unique_ids.txt"
     combo = {}
     count = 0
+    ACCEPTED_CHARS = "abcdefghijklmnopqrstuvwxyz0123456789"
     # opening the file in read mode
     with open(f, "r") as id_file:
         # iterating through the lines of the file
         for id in id_file:
+            id_cleaned = ""
+            for char in id:
+                if char in ACCEPTED_CHARS:
+                    id_cleaned += char
             # pairing each id (each line of the file) with each address from the list
-            combo[id] = short_addr[count]
+            combo[id_cleaned] = short_addr[count]
             count += 1
     return combo
 
