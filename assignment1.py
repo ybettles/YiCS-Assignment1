@@ -241,7 +241,10 @@ def ids_addrs(short_addr):
                 if char in ACCEPTED_CHARS:
                     id_cleaned += char
             # pairing each id (each line of the file) with each address from the list
-            combo[id_cleaned] = short_addr[count]
+            try:
+                combo[id_cleaned] = short_addr[count]
+            except IndexError:
+                break
             count += 1
     return combo
 

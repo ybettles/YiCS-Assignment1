@@ -34,12 +34,13 @@ class TestClass:
     def test_validate_password6(self):
         assert assignment1.validate_password("Password123") == ['CANNOT MAKE USE OF THIS PASSWORD']
 
+
     def test_create_unique(self):
-        id_list = ["mas", "axj", "mas", "mas", "jxs", "hxc", "axg", "jxs", "jxs"]
+        id_list = ["mas", "axj", "drs", "axt", "mas", "mas", "jxs", "hxc", "axg", "mas", "axj"]
         assert assignment1.create_unique(id_list).count('mas0001') > 0
         assert assignment1.create_unique(id_list).count('mas0002') > 0
-        assert assignment1.create_unique(id_list).count('jxs0001') > 0
-        assert assignment1.create_unique(id_list).count('jxs0002') > 0
+        assert assignment1.create_unique(id_list).count('mas0003') > 0
+        assert assignment1.create_unique(id_list).count('axj0001') > 0
 
 
     def test_create_short_address(self):
